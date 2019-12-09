@@ -1,7 +1,7 @@
 <h1 align="center">
   GTL Composer
   <br>
-  <sub>Composer of Generatore Tipografico di Libertà</sub>
+  <sub>Composer for Generatore Tipografico di Libertà</sub>
 </h1>
 
 This repository holds the graphical composer of https://github.com/bbtgnn/GTL to
