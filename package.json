@@ -1,6 +1,10 @@
 {
+  "scripts": {
+    "start": "http-server -o"
+  },
   "dependencies": {
     "bulma": "^0.8.0",
+    "http-server": "^0.12.0",
     "jquery": "^3.4.1"
   }
 }
