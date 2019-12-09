@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+      <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
+      <style>
+        code { cursor: pointer; font-size: 2em;}
+      </style>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">GTL Composer</h1>
+        <div>
+          <input type="radio" id="sharp" name="char" value="#"
+                checked>
+          <label for="sharp">#</label>
+        </div>
+        
+        <div>
+          <input type="radio" id="circle" name="char" value="o">
+          <label for="circle">o</label>
+        </div>
+        <br>
+        <br>
+        <div>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+          <code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><code>·</code><br/>
+        </div>
+      </div>
+    </section>
+  <script>
+      $(document).ready(function() {
+        $("code").on('click', function() {
+          let sign = $('input[name=char]:checked').val();
+          var content = $(this).text();
+          $(this).text(content === "·" ? sign : "·")
+        })
+      })
+  </script>
+</body>
+</html>
