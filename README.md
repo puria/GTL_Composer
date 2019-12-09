@@ -12,12 +12,6 @@ design easily the meta files for each character.
  <summary><strong>:triangular_flag_on_post: Table of Contents</strong> (click to expand)</summary>
 
 * [Install](#floppy_disk-install)
-* [Usage](#video_game-usage)
-* [Docker](#whale-docker)
-* [API](#honeybee-api)
-* [Configuration](#wrench-configuration)
-* [Testing](#clipboard-testing)
-* [Troubleshooting & debugging](#bug-troubleshooting--debugging)
 * [Acknowledgements](#heart_eyes-acknowledgements)
 * [Links](#globe_with_meridians-links)
 * [Contributing](#busts_in_silhouette-contributing)
@@ -43,22 +37,6 @@ run the server
 ```
 yarn start
 ```
-
-***
-## :video_game: Usage
-
-To start using {project_name} just (fill with real documentation)
-
-***
-## :wrench: Configuration
-
-***
-
-## :clipboard: Testing
-
-***
-## :bug: Troubleshooting & debugging
-
 
 ***
 ## :heart_eyes: Acknowledgements
