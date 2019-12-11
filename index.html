@@ -13,14 +13,36 @@
     code {
       cursor: pointer;
       font-size: 2em;
+      margin: 0px;
+      padding: 0px;
+      user-select: none;
     }
 
+    br {
+      line-height: 0px;
+      margin: 0px;
+    }
+
+    .boolean,
+    .string,
     .number {
       border-radius: 0;
       display: inherit;
-      font-size: 1rem;
+      font-size: 11px;
       margin-right: 0;
       text-align: unset;
+    }
+    
+    code.horizontal_stretch {
+      background-color: RGBA(255, 238, 176, 0.5)
+    }
+
+    code.vertical_stretch {
+      background-color: RGBA(83, 127, 187, 0.5)
+    }
+
+    code.vertical_stretch.horizontal_stretch {
+      background-color: RGBA(150, 207, 185, 0.7)
     }
   </style>
 </head>
@@ -32,7 +54,7 @@
       <div id="chars"></div>
       <br>
       <br>
-      <button id="copy" class="button is-primary is-medium"> 👯 Copy to clipboard</button>
+      <button id="copy" class="button is-primary is-medium"> 👯 Download</button>
       <br>
       <br>
       <div id="glyph"></div>
