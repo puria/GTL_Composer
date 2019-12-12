@@ -10,9 +10,16 @@
   <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
   <link rel="stylesheet" href="node_modules/dat.gui/build/dat.gui.css" />
   <style>
+    @font-face {
+      font-family: 'Glyphs';
+      src: url("/assets/NewFont-Regular.woff2") format('woff2');
+    }
+
     code {
+      font-family: 'Glyphs';
       cursor: pointer;
-      font-size: 2em;
+      font-size: 5rem;
+      line-height: 35px;
       margin: 0px;
       padding: 0px;
       user-select: none;
@@ -32,7 +39,7 @@
       margin-right: 0;
       text-align: unset;
     }
-    
+
     code.horizontal_stretch {
       background-color: RGBA(255, 238, 176, 0.5)
     }
@@ -44,6 +51,21 @@
     code.vertical_stretch.horizontal_stretch {
       background-color: RGBA(150, 207, 185, 0.7)
     }
+
+	code.margin_area {
+		background-color: RGBA(255, 182, 193, 0.3);
+	}
+
+	label{
+		font-family: "Glyphs";
+		font-size: 5rem;
+		line-height: 35px;
+	}
+
+	.radio_container {
+		float: left;
+		padding: 10px;
+	}
   </style>
 </head>
 
@@ -52,8 +74,9 @@
     <div class="container">
       <h1 class="title">GTL Composer</h1>
       <div id="chars"></div>
-      <br>
-      <br>
+      <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br> <br>
+      <br> <br>
       <button id="copy" class="button is-primary is-medium"> 👯 Download</button>
       <br>
       <br>
