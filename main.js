@@ -1,14 +1,14 @@
 const char_table = {
   "e": "B0",
   "f": "B1",
-  "m": "I0",
+  "m": "I2",
   "n": "I1",
-  "k": "I2",
+  "k": "I0",
   "l": "I3",
   "x": "C0",
   "y": "C1",
   "z": "C2",
-  "A": "C3",
+  "w": "C3",
   "j": "A0",
   "g": "A1",
   "h": "A2",
@@ -17,6 +17,14 @@ const char_table = {
   "b": "T1",
   "c": "T2",
   "d": "T3",
+  "o": "D0",
+  "p": "D1",
+  "q": "D2",
+  "r": "D3",
+  "s": "V2",
+  "t": "V1",
+  "u": "V0",
+  "v": "V3",
   ".": "00",
   "\r\n": "\r\n",
 };
@@ -26,12 +34,11 @@ let props = {
   rows: 7,
   lines: 7,
   mouseover: false,
-  characters: 'abcdjghixyzAmnklef',
+  characters: 'abcdjghixyzwknmlopqrutsvef',
   horizontal_stretch: false,
 };
 
 function add_stretch(namespace) {
-  const handler = props.mouseover ? "mouseover" : "click";
   $("code").off(`click.${namespace}`).off(`mouseover.${namespace}`)
   $(this).removeAttr(`data-${namespace}`)
   $(this).removeClass(`data-${namespace}`)
@@ -39,13 +46,13 @@ function add_stretch(namespace) {
   const add_meta = function(e) {
     if (e.which == 1) {
       $(this).data(namespace, true)
-      $(this).addClass(namespace)
+      $(this).toggleClass(namespace)
     }
   }
 
   if (props[namespace]) {
     $("code")
-      .on(`${handler}.${namespace}`, add_meta)
+      .on(`click.${namespace}`, add_meta)
       .on(`mouseover.${namespace}`, add_meta)
   }
 }
@@ -54,7 +61,14 @@ function add_x_stetch() { add_stretch('horizontal_stretch') }
 
 function add_y_stetch() { add_stretch('vertical_stretch') }
 
-function dot_paint(e) {
+function dot_paint() {
+  let sign = $("input[name=char]:checked").val();
+  var content = $(this).text();
+  // if (e.which==1)
+  $(this).text(content !== "." ? "." : sign);
+}
+
+function dot_paint_over(e) {
   let sign = $("input[name=char]:checked").val();
   var content = $(this).text();
   if (e.which==1)
@@ -72,7 +86,6 @@ function rotate() {
   var newone = el.clone(true);
   el.before(newone);
   el.remove();
-  console.log(newone.data(), newone.attr('class'))
 }
 
 function draw_grid() {
@@ -91,15 +104,13 @@ function draw_grid() {
     }
   }
 
-  $("code").on(props.mouseover ? "mouseover.paint" : "click.paint", dot_paint);
-  $("code").on('click', rotate);
+  attach_paint_event()
 }
 
 function attach_paint_event() {
     $("code")
-        .off("mouseover.paint")
-        .off("click.paint")
-        .on(props.mouseover ? "mouseover.paint" : "click.paint", dot_paint);
+        .on("mouseover.paint", dot_paint_over)
+        .on("click.paint", dot_paint);
 }
 
 function generate_char_radio(char) {
@@ -175,13 +186,13 @@ $(document).ready(function() {
   gui.add(props, "unicode_name")
   var rows_controller = gui.add(props, "rows");
   //var lines_controller = gui.add(props, "lines");
-  var mouseover_controller = gui.add(props, "mouseover")
+  // var mouseover_controller = gui.add(props, "mouseover")
   // var chars_controller = gui.add(props, "characters");
   // var vertical_stretch_controller = gui.add(props, "vertical_stretch")
   var horizontal_stretch_controller = gui.add(props, "horizontal_stretch")
   rows_controller.onFinishChange(draw_grid)
   //lines_controller.onFinishChange(draw_grid)
-  mouseover_controller.onChange(attach_paint_event)
+  // mouseover_controller.onChange(attach_paint_event)
   // chars_controller.onFinishChange(generate_radio)
   generate_radio()
   draw_grid()
