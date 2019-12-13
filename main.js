@@ -32,7 +32,7 @@ const char_table = {
 let props = {
   unicode_name: '',
   rows: 7,
-  lines: 7,
+  lines: 5,
   mouseover: false,
   characters: 'abcdjghixyzwknmlopqrutsvef',
   horizontal_stretch: false,
