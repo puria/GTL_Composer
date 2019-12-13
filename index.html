@@ -96,7 +96,9 @@
         <div class="column">
           <div id="glyph"></div>
           <br>
+          <br>
           <button id="copy" class="button is-primary is-medium"> 👯 Download</button>
+          <button id="load" class="button is-medium">Load CSV</button>
         </div>
         <div class="column">
           <div id="chars"></div>
@@ -104,5 +106,21 @@
     </div>
 
   </section>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Upload CSV</p>
+        <button class="close delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <textarea id="CSV" class="textarea is-medium"></textarea>
+      </section>
+      <footer class="modal-card-foot">
+        <button id="load_csv" class="button is-success close">Load</button>
+        <button class="button close">Cancel</button>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>

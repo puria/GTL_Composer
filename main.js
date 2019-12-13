@@ -143,6 +143,33 @@ function download() {
   document.body.removeChild(element);
 }
 
+function findInCharTable(value) {
+  return Object.keys(char_table).find(key => char_table[key] === value);
+}
+
+function load() { 
+  let csv = $('#CSV').val()
+  console.log(csv)
+  const lines = csv.split('\n')
+  for (const i in lines) {
+    const glyphs = lines[i].split(",").map(function(item) { return item.trim(); });
+    for (const j in glyphs) {
+      const splitted_char = glyphs[j].split("*")
+      const extended = splitted_char.length == 2
+      const cell = $(`[data-i=${i}][data-j=${j}]`)
+      cell.html(findInCharTable(splitted_char[0]))
+      if (extended) {
+        cell.data('horizontal_stretch', true)
+        cell.addClass('horizontal_stretch')
+      }
+    }
+  }
+}
+
+function load_modal() {  $(".modal").addClass("is-active") }
+
+function close_modal() {  $(".modal").removeClass("is-active") }
+
 $(document).ready(function() {
   var gui = new dat.GUI();
   gui.add(props, "unicode_name")
@@ -160,9 +187,8 @@ $(document).ready(function() {
   horizontal_stretch_controller.onChange(add_x_stetch)
   // vertical_stretch_controller.onChange(add_y_stetch)
 
-
-  $("#copy").on("click", function() {
-    console.log(export_glyph())
-    download()
-  });
+  $("#load").on("click", load_modal);
+  $("#load_csv").on("click", load);
+  $("#copy").on("click", download);
+  $(".close").on("click", close_modal);
 });
