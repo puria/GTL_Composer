@@ -184,6 +184,7 @@ $(document).ready(function() {
   mouseover_controller.onChange(attach_paint_event)
   // chars_controller.onFinishChange(generate_radio)
   generate_radio()
+  draw_grid()
   horizontal_stretch_controller.onChange(add_x_stetch)
   // vertical_stretch_controller.onChange(add_y_stetch)
 
