@@ -161,14 +161,13 @@ function findInCharTable(value) {
 
 function load() { 
   let csv = $('#CSV').val()
-  console.log(csv)
   const lines = csv.split('\n')
-  for (const i in lines) {
+  for (let i in lines) {
     const glyphs = lines[i].split(",").map(function(item) { return item.trim(); });
-    for (const j in glyphs) {
+    for (let j in glyphs) {
       const splitted_char = glyphs[j].split("*")
       const extended = splitted_char.length == 2
-      const cell = $(`[data-i=${i}][data-j=${j}]`)
+      const cell = $(`[data-i=${j}][data-j=${i}]`)
       cell.html(findInCharTable(splitted_char[0]))
       if (extended) {
         cell.data('horizontal_stretch', true)
