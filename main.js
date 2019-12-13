@@ -97,7 +97,7 @@ function draw_grid() {
     $("#glyph").append($("<br>"));
     for (var row = 0; row < rows; row++) {
       var cls = ""
-      if (row==0 || row==rows-1 || line==0 || line==lines-1)
+      if (row==0 || row==rows-1)
          cls = "margin_area"
 
       $("#glyph").append($(`<code class="${cls}" data-rotate='0' data-i='${row}' data-j='${line}'>.</code>`));
