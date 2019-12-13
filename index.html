@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/dat.gui/build/dat.gui.min.js"></script>
   <script src="main.js"></script>
   <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
@@ -15,6 +15,11 @@
       src: url("/assets/NewFont-Regular.woff2") format('woff2');
     }
 
+    #chars {
+      max-width: 390px;
+
+    }
+
     code {
       font-family: 'Glyphs';
       cursor: pointer;
@@ -23,7 +28,14 @@
       margin: 0px;
       padding: 0px;
       user-select: none;
+      transition-duration: 1s;
     }
+
+    .rotate-0 { transform: rotate(0deg); }
+    .rotate-1 { transform: rotate(45deg); }
+    .rotate-2 { transform: rotate(180deg); }
+    .rotate-3 { transform: rotate(270deg); }
+
 
     br {
       line-height: 0px;
@@ -41,7 +53,9 @@
     }
 
     code.horizontal_stretch {
-      background-color: RGBA(255, 238, 176, 0.5)
+      background-color: RGBA(150, 207, 185, 0.7)
+
+      /*background-color: RGBA(255, 238, 176, 0.5)*/
     }
 
     code.vertical_stretch {
@@ -52,20 +66,25 @@
       background-color: RGBA(150, 207, 185, 0.7)
     }
 
-	code.margin_area {
-		background-color: RGBA(255, 182, 193, 0.3);
-	}
+    code.margin_area {
+      background-color: RGBA(255, 182, 193, 0.3);
+    }
 
 	label{
 		font-family: "Glyphs";
 		font-size: 5rem;
 		line-height: 35px;
+      border: 1px solid gray;
 	}
 
 	.radio_container {
 		float: left;
 		padding: 10px;
 	}
+    #glyph {
+      float: left;
+      margin-right: 40px;
+    }
   </style>
 </head>
 
@@ -73,15 +92,17 @@
   <section class="section">
     <div class="container">
       <h1 class="title">GTL Composer</h1>
-      <div id="chars"></div>
-      <br> <br> <br> <br> <br> <br>
-      <br> <br> <br> <br> <br> <br>
-      <br> <br>
-      <button id="copy" class="button is-primary is-medium"> 👯 Download</button>
-      <br>
-      <br>
-      <div id="glyph"></div>
+      <div class="columns">
+        <div class="column">
+          <div id="glyph"></div>
+          <br>
+          <button id="copy" class="button is-primary is-medium"> 👯 Download</button>
+        </div>
+        <div class="column">
+          <div id="chars"></div>
+        </div>
     </div>
+
   </section>
 </body>
 </html>

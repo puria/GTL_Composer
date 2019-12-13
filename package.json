@@ -7,5 +7,8 @@
     "dat.gui": "^0.7.6",
     "http-server": "^0.12.0",
     "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "surge": "^0.21.3"
   }
 }
