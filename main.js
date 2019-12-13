@@ -32,7 +32,7 @@ const char_table = {
 let props = {
   unicode_name: '',
   rows: 7,
-  lines: 5,
+  lines: 3,
   mouseover: false,
   characters: 'abcdjghixyzwknmlopqrutsvef',
   horizontal_stretch: false,
@@ -186,13 +186,13 @@ $(document).ready(function() {
   var gui = new dat.GUI();
   gui.add(props, "unicode_name")
   var rows_controller = gui.add(props, "rows");
-  //var lines_controller = gui.add(props, "lines");
+  var lines_controller = gui.add(props, "lines");
   // var mouseover_controller = gui.add(props, "mouseover")
   // var chars_controller = gui.add(props, "characters");
   // var vertical_stretch_controller = gui.add(props, "vertical_stretch")
   var horizontal_stretch_controller = gui.add(props, "horizontal_stretch")
   rows_controller.onFinishChange(draw_grid)
-  //lines_controller.onFinishChange(draw_grid)
+  lines_controller.onFinishChange(draw_grid)
   // mouseover_controller.onChange(attach_paint_event)
   // chars_controller.onFinishChange(generate_radio)
   generate_radio()
