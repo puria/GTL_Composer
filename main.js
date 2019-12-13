@@ -137,7 +137,7 @@ function export_glyph() {
     let expanded = $(this).data('horizontal_stretch') ? "*" : "";
     let code = char_table[$(this).text()]
 
-    const ending = el ? "\r\n" : ", "
+    const ending = el ? "\r\n" : ","
     const __ = code + expanded + ending
     csv += __
   });
