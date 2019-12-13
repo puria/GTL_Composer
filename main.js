@@ -125,6 +125,7 @@ function generate_radio() {
     for (var i in props.characters) {
         generate_char_radio(props.characters[i])
     }
+    generate_char_radio(".")
 }
 
 function export_glyph() {
